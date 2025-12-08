@@ -187,8 +187,8 @@
                                         <!-- Other Nav Buttons -->
                                         <div class="ml-2 flex gap-1">
                                             <button @click="copyItemToDay(item)" class="flex-shrink-0 text-[10px] bg-yellow-50 text-yellow-600 px-3 py-1.5 rounded-full hover:bg-yellow-200 whitespace-nowrap">複製</button>
-                                            <a :href="getNavUrl(item)" target="_blank" class="flex-shrink-0 text-[10px] bg-green-50 text-green-600 px-3 py-1.5 rounded-full font-bold flex items-center hover:bg-green-100 whitespace-nowrap"><i class="fa-solid fa-location-arrow mr-1"></i> 導航</a>
-                                            <button v-if="index > 0 && !currentItinerary[index-1].isFlight" @click="planRouteFromPrev(item, index)" class="flex-shrink-0 text-[10px] bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full font-bold flex items-center hover:bg-blue-100 whitespace-nowrap"><i class="fa-solid fa-route mr-1"></i> 路線</button>
+                                            <a :href="getNavUrl(item)" target="_blank" class="flex-shrink-0 text-[10px] bg-green-50 text-green-600 px-3 py-1.5 rounded-full font-bold flex items-center hover:bg-green-100 whitespace-nowrap"><i class="fa-solid fa-location-arrow mr-1"></i> </a>
+                                            <button v-if="index > 0 && !currentItinerary[index-1].isFlight" @click="planRouteFromPrev(item, index)" class="flex-shrink-0 text-[10px] bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full font-bold flex items-center hover:bg-blue-100 whitespace-nowrap"><i class="fa-solid fa-route mr-1"></i> </button>
                                         </div>
                                     </div>
                                 </div>
