@@ -842,23 +842,21 @@
             
             // New Info functions using modal
             const openInfoModal = () => { editingInfoId.value = null; newInfo.title = ''; newInfo.content = ''; newInfo.image = null; modals.info = true; };
-            // 修改後的 saveInfo 函式，解決編輯時新增一筆的錯誤
+           // Fix: saveInfo bug (duplicated entry)
             const saveInfo = () => { 
                 if(!newInfo.title) return;
+                // Important: Ensure ID is preserved if editing, or create new one
+                const d = { ...newInfo, id: editingInfoId.value || Date.now() }; 
                 
                 if(editingInfoId.value) {
-                    // 編輯模式：找到原本的項目並更新，保留原本的 ID
                     const idx = infoList.value.findIndex(i => i.id === editingInfoId.value);
                     if (idx !== -1) {
-                        infoList.value[idx] = { ...newInfo, id: editingInfoId.value };
+                        infoList.value[idx] = d;
                     }
                 } else {
-                    // 新增模式
-                    const d = { ...newInfo, id: Date.now() };
                     infoList.value.unshift(d);
                 }
                 
-                // 重置表單與關閉視窗
                 editingInfoId.value = null; 
                 newInfo.title = ''; 
                 newInfo.content = ''; 
